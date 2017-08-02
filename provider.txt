@@ -1,0 +1,16 @@
+var mod = angular.module("MyModule", []);
+
+mod.provider("myProvider", function() {
+    this.$get = function() {
+        console.log("MyProviderFunction.$get() called."); // ADDED this line
+        return "My Value";
+    };
+});
+
+mod.controller("MyController", function(myProvider) {
+    console.log("MyController - myProvider: " + myProvider);
+});
+
+mod.controller("MyController2", function(myProvider) { // ADDED this controller
+    console.log("MyController2 - myProvider: " + myProvider);
+});
